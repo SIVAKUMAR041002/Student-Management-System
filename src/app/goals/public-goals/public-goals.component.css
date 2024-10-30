@@ -1,0 +1,54 @@
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
+    max-height: 600px; 
+    overflow-y: auto; 
+  }
+  
+  .card-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .card-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .card-container::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  .card-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  .bbutton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 8px;
+  }
+  
+  .goal-card {
+    background-color: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced out */
+  }
+  
+  mat-card-content {
+    flex: 1; /* Allow content to take up available space */
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 8px;
+  }
+  

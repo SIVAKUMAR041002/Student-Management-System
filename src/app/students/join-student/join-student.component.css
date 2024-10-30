@@ -1,0 +1,73 @@
+.container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #f0f8ff;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .radio-inline {
+    margin-right: 16px;
+  }
+  
+  mat-card-header {
+  background-color: #f0f8ff;;
+  }
+  
+  mat-card-title {
+    font-size: 1.5em;
+    color: #3f51b5;
+    margin-bottom: 20px;
+  }
+  
+
+  .mat-form-row {
+    display: flex;
+    gap: 16px; /* Adjust the gap as needed */
+    margin-bottom: 16px;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px; /* Adjust the gap as needed */
+    margin-top: 16px;
+  }
+  
+  .full-width {
+    flex: 1;
+  }
+  
+ /* Custom button styles */
+.add-student-btn {
+  background-color: #007bff; /* Blue color */
+  color: white;
+}
+
+.reset-btn {
+  background-color: #dc3545; /* Red color */
+  color: white;
+}
+
+/* Retain Angular Material's default styling, including rounded corners */
+.add-student-btn.mat-raised-button, .reset-btn.mat-raised-button {
+  border-radius: 4px; /* Ensure rounded corners */
+}
+
+/* Optional: Add hover effects */
+.add-student-btn:hover {
+  background-color: #0056b3; /* Darker blue for hover */
+}
+
+.reset-btn:hover {
+  background-color: #c82333; /* Darker red for hover */
+}
+/* styles.css or component-specific CSS file */
+.success-snackbar {
+  background-color: #4caf50; /* Green color for success */
+  color: #ffffff; /* White text color for better readability */
+}

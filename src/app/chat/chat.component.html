@@ -1,0 +1,46 @@
+
+<mat-card class="chat-container">
+    <mat-card-content class="chat-window">
+      <div *ngFor="let chat of chats" class="chat-entry">
+        <mat-card class="chat-message">
+          <mat-card-title class="posted">{{chat.postedBy}}</mat-card-title>
+          <mat-card-content>{{chat.message}}</mat-card-content>
+          <mat-divider></mat-divider>
+          <div class="chat-actions">
+            <button mat-button (click)="likeChat(chat.id)">
+              <mat-icon>thumb_up</mat-icon> {{chat.likes}}
+            </button>
+            <button mat-button (click)="toggleReplyField(chat.id)">
+              Reply
+            </button>
+          </div>
+          <div *ngIf="replyFields[chat.id]" class="reply-input-container">
+            <mat-form-field>
+              <input matInput #replyInput placeholder="Type your reply" (keyup.enter)="addReply(chat.id, replyInput.value); replyInput.value=''">
+            </mat-form-field>
+          </div>
+          <div class="chat-replies" *ngIf="chat.replies.length > 0">
+            <mat-card *ngFor="let reply of chat.replies" class="chat-reply">
+              <mat-card-title class="reply">{{reply.repliedBy}}</mat-card-title>
+              <mat-card-content>{{reply.message}}</mat-card-content>
+              <mat-divider></mat-divider>
+              <div class="reply-actions">
+                <button mat-button (click)="likeReply(chat.id, reply)">
+                  <mat-icon>thumb_up</mat-icon> {{reply.likes}}
+                </button>
+              </div>
+            </mat-card>
+          </div>
+        </mat-card>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="chat-input">
+      <mat-form-field class="message-input">
+        <input matInput [(ngModel)]="newMessage" placeholder="Type your message" (keyup.enter)="sendMessage()">
+      </mat-form-field>
+      <button mat-icon-button color="accent" (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  

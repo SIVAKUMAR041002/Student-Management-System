@@ -1,0 +1,86 @@
+<!-- Profile Details Card -->
+<div class="student-details-container" style="margin-top: 50px;">
+  <mat-card class="student-details-card" *ngIf="!isEditing" style="margin-top: 20px;">
+    <mat-card-header>
+      <mat-card-title>Profile</mat-card-title>
+      <button mat-icon-button class="back-button" (click)="goBack()" color="primary">
+        <mat-icon class="blue-icon">arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let field of profileFields">
+          <span class="mat-body-1"><strong>{{ field.label }}: </strong></span>
+          <span>{{ user[field.key] }}</span>
+        </mat-list-item>
+      </mat-list>
+      <p *ngIf="lastUpdateTime">
+        Last updated: {{ lastUpdateTime | timeSince }}
+      </p>      
+      <a mat-button color="primary" (click)="editProfile()" class="edit-link">Edit</a>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<!-- Update Profile Form -->
+<div class="student-details-container">
+    <mat-card class="student-details-card" *ngIf="isEditing">
+      <mat-card-header style="margin-bottom: 20px;">
+        <mat-card-title>Update Profile</mat-card-title>
+        <button mat-icon-button class="back-button" (click)="cancelEdit()" color="primary">
+          <mat-icon class="blue-icon">arrow_back</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="updateProfile()">
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>ID</mat-label>
+              <input matInput type="text" id="id" [(ngModel)]="user.id" name="id" required readonly>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Username</mat-label>
+              <input matInput [(ngModel)]="user.username" name="username" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Email</mat-label>
+              <input matInput [(ngModel)]="user.email" name="email" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Contact Number</mat-label>
+              <input matInput [(ngModel)]="user.contact" name="contact" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Address</mat-label>
+              <input matInput [(ngModel)]="user.address" name="address" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Designation</mat-label>
+              <input matInput [(ngModel)]="user.designation" name="designation" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Work Experience (Years)</mat-label>
+              <input matInput type="number" [(ngModel)]="user.workExperience" name="workExperience" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Year of Joining</mat-label>
+              <input matInput type="number" [(ngModel)]="user.yearOfJoining" name="yearOfJoining" />
+            </mat-form-field>
+          </div>
+
+          <button mat-raised-button color="primary" type="submit">Update Profile</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+</div>
+  

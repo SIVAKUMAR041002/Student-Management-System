@@ -1,0 +1,15 @@
+<div mat-dialog-title class="dialog-title">
+    <span class="dialog-title-text" style="color: white;">Student ID: {{ data.id }}</span>
+    <button mat-icon-button class="close-button" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  
+  <div mat-dialog-content class="dialog-content" style="background-color: #f0f8ff;">
+    <p class="dialog-item"><strong>Name:</strong> {{ data.name }}</p>
+    <p class="dialog-item"><strong>Gender:</strong> {{ data.gender }}</p>
+    <p class="dialog-item"><strong>Age:</strong> {{ data.age }}</p>
+    <p class="dialog-item"><strong>Email ID:</strong> {{ data.eid }}</p>
+    <p class="dialog-item"><strong>Course:</strong> {{ data.course }}</p>
+  </div>
+  

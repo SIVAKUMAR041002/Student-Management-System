@@ -1,0 +1,72 @@
+<div class="container">
+  <h3 style="margin-top: 50px; text-align: center; color: #0084ff;">Goals</h3>
+
+  <div class="card-container">
+    <mat-card *ngFor="let goal of goals" class="goal-card">
+      <mat-card-header style="margin-bottom: 15px; position: relative;">
+        <mat-card-title style="color: rgb(0, 89, 255);">
+          {{ goal.goalName }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <span style="color: green; font-size: smaller;">{{ goal.startDate | date: 'yyyy-MM-dd' }}</span> -
+          <span style="color: red; font-size: smaller;">{{ goal.endDate | date: 'yyyy-MM-dd' }}</span>
+        </mat-card-subtitle>
+
+        <div class="bbutton">
+          <button mat-icon-button color="warn" (click)="onDelete(goal.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="onUpdateGoal(goal.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>Status: {{ goal.goalStatus }}</p>
+        <p>Owner: {{ goal.addedBy }}</p>
+        <p>Estimated Time: {{ goal.est }}</p>
+        <p>Remaining Time: {{ goal.rt }}</p>
+
+        <p>
+          Percentage Completed:
+          <span *ngIf="getTimeUtilizationPercentage(goal) > 100">
+            100 + {{ getTimeUtilizationPercentage(goal) - 100 }} %
+          </span>
+          <span *ngIf="getTimeUtilizationPercentage(goal) <= 100">
+            {{ getTimeUtilizationPercentage(goal) }} %
+          </span>
+        </p>
+
+        <!-- Progress bar for 100% or less -->
+        <mat-progress-bar
+          mode="determinate"
+          color="primary"
+          [value]="getProgressBarValue(goal)">
+        </mat-progress-bar>
+
+        <!-- Progress bar for overflow (orange for > 100%) -->
+        <mat-progress-bar
+          *ngIf="getTimeUtilizationPercentage(goal) > 100"
+          mode="determinate"
+          color="warn"
+          class="overflow-bar"
+          [value]="getOverflowValue(goal)">
+        </mat-progress-bar>
+          <div *ngIf="goal.tasks.length > 0">
+          <mat-list>
+            <mat-list-item *ngFor="let task of goal.tasks">
+              <mat-icon>task</mat-icon>
+              {{ task.taskName }} ({{ task.taskTime }} hours) 
+              - <span matTooltip="{{ getCreationTime(task) }}" matTooltipPosition="above">{{ getTimeAgo(task) }}</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions class="card-actions">
+        <button mat-button (click)="onUpdateTask(goal.id)">Add Log</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

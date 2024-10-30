@@ -1,0 +1,45 @@
+.student-details-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.student-details-card {
+  width: 100%;
+  max-width: 600px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+}
+
+.mat-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-body-1 {
+  font-size: 1em;
+}
+
+button {
+  margin-bottom: 20px;
+}
+.student-details-card {
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+}
+mat-card-header {
+  background-color: #f0f8ff;
+}
+mat-card {
+  background-color: #f0f8ff;
+}
+
+mat-card-title {
+  font-size: 1.5em;
+  color: #3f51b5;
+}

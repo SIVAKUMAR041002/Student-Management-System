@@ -1,0 +1,63 @@
+<mat-card class="container" style="margin-top: 150px; background-color: #f0f8ff;">
+    <mat-card-header>
+      <mat-card-title>Update Student</mat-card-title>
+      <button mat-icon-button class="back-button" color="primary" (click)="goBack()">
+        <mat-icon class="blue-icon">arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
+    <form (ngSubmit)="onSubmit()" #updateForm="ngForm">
+      <div class="mat-form-row">
+        <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" id="name" [(ngModel)]="student.name" name="name" required>
+        </mat-form-field>
+    
+        <mat-form-field class="full-width">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" id="age" [(ngModel)]="student.age" name="age" required>
+        </mat-form-field>
+      </div>
+
+      <div class="mat-form-row">
+        <mat-label>Gender:</mat-label>
+        <mat-radio-group [(ngModel)]="student.gender" name="gender" required>
+          <mat-radio-button class="rad io-inline" value="Male">Male</mat-radio-button>
+          <mat-radio-button class="radio-inline" value="Female">Female</mat-radio-button>
+          <mat-radio-button class="radio-inline" value="Other">Other</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="mat-form-row">
+        <mat-form-field class="full-width">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" id="dob" [(ngModel)]="student.dob" name="dob" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+        <mat-form-field class="full-width">
+          <mat-label>Course</mat-label>
+          <mat-select id="course" [(ngModel)]="student.course" name="course" required>
+            <mat-option *ngFor="let course of courses" [value]="course">{{course}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="mat-form-row">
+        <mat-form-field class="full-width">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="text" id="phno" [(ngModel)]="student.phno" name="phno" required>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Email Id</mat-label>
+          <input matInput type="text" id="eid" [(ngModel)]="student.eid" name="eid" required>
+        </mat-form-field>
+      </div>
+
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit">Update Student</button>
+        <button mat-raised-button color="warn" type="button" (click)="resetForm(updateForm)">Reset</button>
+      </div>
+    </form>
+  </mat-card>
+  

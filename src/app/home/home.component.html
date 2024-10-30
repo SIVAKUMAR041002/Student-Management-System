@@ -1,0 +1,191 @@
+<div class="container-fluid">
+    <header class="row text-white py-3" style="background-color: #0084ff;">
+      <div class="col-12 d-flex align-items-center">
+        <div class="logo">
+          <img src="/../images/logo.png" alt="Logo">
+      </div>        <h1 class="ml-3 mb-0"><strong>StudentTrack - Student Management System</strong></h1>
+        <button mat-button class="ml-auto logout-btn" (click)="logout()" 
+          style="color: #ffffff;">
+          <mat-icon style="color: #ffffff;">logout</mat-icon>
+          Logout
+        </button>
+      </div>
+    </header>
+    <div class="row">
+      <mat-sidenav-container class="col-md-2 d-none d-md-block bg-light sidebar">
+        <mat-sidenav mode="side" opened>
+          <mat-nav-list >
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/profile']"
+              [queryParams]="{ username: username }"
+              (mouseenter)="setHoverState('myStudent', true)" 
+              (mouseleave)="setHoverState('myStudent', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.myStudent ? '#e6f7ff' : '',
+                'color': hoverState.myStudent ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.myStudent ? '#0056b3' : ''}">person</mat-icon>
+              <span class="ml-2">My Ptofile</span>
+            </a>
+            
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/students/join-student']"
+              (mouseenter)="setHoverState('addStudent', true)" 
+              (mouseleave)="setHoverState('addStudent', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.addStudent ? '#e6f7ff' : '',
+                'color': hoverState.addStudent ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.addStudent ? '#0056b3' : ''}">person_add</mat-icon>
+              <span class="ml-2">Add Student</span>
+            </a>
+          
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/view-my-students']"
+              (mouseenter)="setHoverState('viewMyStudents', true)" 
+              (mouseleave)="setHoverState('viewMyStudents', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.viewMyStudents ? '#e6f7ff' : '',
+                'color': hoverState.viewMyStudents ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.viewMyStudents ? '#0056b3' : ''}">group</mat-icon>
+              <span class="ml-2">Class Students</span>
+            </a>
+          
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/students/school-students']"
+              (mouseenter)="setHoverState('viewAllStudents', true)" 
+              (mouseleave)="setHoverState('viewAllStudents', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.viewAllStudents ? '#e6f7ff' : '',
+                'color': hoverState.viewAllStudents ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.viewAllStudents ? '#0056b3' : ''}">school</mat-icon>
+              <span class="ml-2">School Students</span>
+            </a>
+
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/goals/add-goal']"
+              [queryParams]="{ username: username }"
+              (mouseenter)="setHoverState('setGoals', true)" 
+              (mouseleave)="setHoverState('setGoals', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.setGoals ? '#e6f7ff' : '',
+                'color': hoverState.setGoals ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.setGoals ? '#0056b3' : ''}">flag</mat-icon>
+              <span class="ml-2">Set Goals</span>
+            </a>
+
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/goals/goal-list']"
+              [queryParams]="{ username: username }"
+              (mouseenter)="setHoverState('goalList', true)" 
+              (mouseleave)="setHoverState('goalList', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.goalList ? '#e6f7ff' : '',
+                'color': hoverState.goalList ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.goalList ? '#0056b3' : ''}">assignment</mat-icon>
+              <span class="ml-2">My Goals</span>
+            </a>
+
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/goals/public-goals']"
+              (mouseenter)="setHoverState('publicGoals', true)" 
+              (mouseleave)="setHoverState('publicGoals', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.publicGoals ? '#e6f7ff' : '',
+                'color': hoverState.publicGoals ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.publicGoals ? '#0056b3' : ''}">public</mat-icon>
+              <span class="ml-2">Public Goals</span>
+            </a>
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/chart']"
+              (mouseenter)="setHoverState('chart', true)" 
+              (mouseleave)="setHoverState('chart', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.chart ? '#e6f7ff' : '',
+                'color': hoverState.chart ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.chart ? '#0056b3' : ''}">show_chart</mat-icon>
+              <span class="ml-2">Statistics</span>
+            </a>
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/chat']"
+              (mouseenter)="setHoverState('chat', true)" 
+              (mouseleave)="setHoverState('chat', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.chat ? '#e6f7ff' : '',
+                'color': hoverState.chat ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.chat ? '#0056b3' : ''}">chat</mat-icon>
+              <span class="ml-2">Chat</span>
+            </a>
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/goals/leaders-board']"
+              (mouseenter)="setHoverState('lb', true)" 
+              (mouseleave)="setHoverState('lb', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.lb ? '#e6f7ff' : '',
+                'color': hoverState.lb ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.lb ? '#0056b3' : ''}">star</mat-icon>
+              <span class="ml-2">Leaders Board</span>
+            </a>
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/change-password']"
+              [queryParams]="{ username: username }"
+              (mouseenter)="setHoverState('changePassword', true)" 
+              (mouseleave)="setHoverState('changePassword', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.changePassword ? '#e6f7ff' : '',
+                'color': hoverState.changePassword ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.changePassword ? '#0056b3' : ''}">lock</mat-icon>
+              <span class="ml-2">Change Password</span>
+            </a>
+            <a 
+              mat-list-item 
+              [routerLink]="['/home/meet']"
+              (mouseenter)="setHoverState('meet', true)" 
+              (mouseleave)="setHoverState('meet', false)" 
+              [ngStyle]="{
+                'background-color': hoverState.meet ? '#e6f7ff' : '',
+                'color': hoverState.meet ? '#0056b3' : '' 
+              }"
+            >
+              <mat-icon [ngStyle]="{'color': hoverState.meet ? '#0056b3' : ''}">event</mat-icon>
+              <span class="ml-2">Schedule Meeting</span>
+            </a>
+          </mat-nav-list>               
+        </mat-sidenav>
+      </mat-sidenav-container>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>

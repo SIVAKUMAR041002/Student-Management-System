@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    background-image: url('/images/bg.jpg'); /* Replace with the path to your image */
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: white; /* Dark green color */
+    color: black; /* Text color */
+    margin-top: 0; /* Ensure no space at the top */
+}

@@ -1,0 +1,24 @@
+<div>
+    <h6>Update Tasks for Goal: {{ goal.goalName }}</h6>
+  
+    <div>
+      <label for="taskName">Task Name:</label>
+      <input id="taskName" [(ngModel)]="newTask.taskName" placeholder="Enter task name" />
+  
+      <label for="taskTime">Task Time:</label>
+      <input id="taskTime" [(ngModel)]="newTask.taskTime" type="number" />
+  
+      <button (click)="addTask()">Add Task</button>
+    </div>
+  
+    <div *ngIf="goal.tasks && goal.tasks.length">
+      <h6>Existing Tasks:</h6>
+      <ul>
+        <li *ngFor="let task of goal.tasks">
+          {{ task.taskName }} - {{ task.taskTime }}
+        </li>
+      </ul>
+    </div>
+  
+  </div>
+  

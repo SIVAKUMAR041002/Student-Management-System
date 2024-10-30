@@ -1,0 +1,37 @@
+<div class="container">
+    <h3 style="margin-top: 50px; text-align: center; color: #0084ff;">Goals</h3>
+  
+    <div class="card-container">
+      <mat-card *ngFor="let goal of goals" class="goal-card">
+        <mat-card-header style="margin-bottom: 15px; position: relative;">
+          <mat-card-title style="color: rgb(0, 89, 255);">
+            {{ goal.goalName }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <span style="color: green; font-size: smaller;">{{ goal.startDate | date: 'yyyy-MM-dd' }}</span> -
+            <span style="color: red; font-size: smaller;">{{ goal.endDate | date: 'yyyy-MM-dd' }}</span>
+          </mat-card-subtitle>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <p>Status: {{ goal.goalStatus }}</p>
+          <p>Owner: {{ goal.addedBy }}</p>
+          <p>Estimated Time: {{ goal.est }}</p>
+          <p>Remaining Time: {{ goal.rt }}</p>
+          <mat-progress-bar
+            mode="determinate"
+            [value]="getTimeUtilizationPercentage(goal)">
+          </mat-progress-bar>
+          <div *ngIf="goal.tasks.length > 0">
+            <mat-list>
+              <mat-list-item *ngFor="let task of goal.tasks">
+              <mat-icon>task</mat-icon>
+                {{ task.taskName }} ({{ task.taskTime }} hours) - {{ getTimeAgo(task) }}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

@@ -1,0 +1,8 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px; /* Add space around the page */
+    padding: 0;
+    background-color: #003300; /* Dark green color */
+    color: black; /* Text color */
+    margin-top: 0; /* Ensure no space at the top */
+}

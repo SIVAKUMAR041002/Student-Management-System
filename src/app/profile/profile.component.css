@@ -1,0 +1,69 @@
+.student-details-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  
+  }
+  
+  .student-details-card {
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .mat-list-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .mat-body-1 {
+    font-size: 1em;
+  }
+  
+  mat-card-header {
+    background-color: #f0f8ff;  }
+  
+  mat-card-title {
+    font-size: 1.5em;
+    color: #3f51b5;
+
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 8px;
+  }
+  
+  .edit-link {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    margin-top: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  mat-card{
+    background-color: #f0f8ff;
+  }
+  
+  .form-field {
+    flex: 1;
+    margin-right: 8px;
+  }
+  
+  .form-field:last-child {
+    margin-right: 0;
+  }
+  

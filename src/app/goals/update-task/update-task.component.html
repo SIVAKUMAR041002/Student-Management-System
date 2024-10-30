@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title style="margin-bottom: 30px; " >Update Tasks for Goal: {{ goal.goalName }}</mat-card-title>
+  
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Task Name</mat-label>
+          <input matInput id="taskName" [(ngModel)]="newTask.taskName" name="taskName" placeholder="Enter task name" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Task Time</mat-label>
+          <input matInput id="taskTime" [(ngModel)]="newTask.taskTime" name="taskTime" type="number" placeholder="Enter task time" />
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+    </mat-card-actions>
+  </mat-card>
+  

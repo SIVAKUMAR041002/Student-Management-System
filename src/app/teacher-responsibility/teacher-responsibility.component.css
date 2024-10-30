@@ -1,0 +1,56 @@
+.grid-container {
+    height: 100vh;
+    width: 100%;
+  }
+  
+  mat-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #e0f7fa;
+    color: #01579b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .star-card {
+    background-color: #e0f7fa;
+  }
+  
+  .star {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .point {
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .center {
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: #0084ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .mission-vision-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between Mission and Vision cards */
+  }
+  
+  .mission-card, .vision-card {
+    width: 100%;
+  }
+  

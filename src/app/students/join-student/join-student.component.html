@@ -1,0 +1,83 @@
+<mat-card class="container" style="margin-top: 100px;">
+    <mat-card-header>
+      <mat-card-title>Add Student</mat-card-title>
+    </mat-card-header>
+    <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+      <div class="mat-form-row">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" id="name" [(ngModel)]="student.name" name="name" required minlength="3">
+          <mat-error *ngIf="studentForm.controls['name']?.invalid && studentForm.controls['name']?.touched">
+            Name is required and should be at least 3 characters long.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" id="age" [(ngModel)]="student.age" name="age" required min="1" max="100">
+          <mat-error *ngIf="studentForm.controls['age']?.invalid && studentForm.controls['age']?.touched">
+            Age is required and must be between 1 and 100.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="mat-form-row">
+        <label for="gender">Gender:</label>
+        <mat-radio-group [(ngModel)]="student.gender" name="gender" required>
+          <mat-radio-button class="radio-inline" value="Male">Male</mat-radio-button>
+          <mat-radio-button class="radio-inline" value="Female">Female</mat-radio-button>
+          <mat-radio-button class="radio-inline" value="Other">Other</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="studentForm.controls['gender']?.invalid && studentForm.controls['gender']?.touched">
+          Gender is required.
+        </mat-error>
+      </div>
+  
+      <div class="mat-form-row">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" id="dob" [(ngModel)]="student.dob" name="dob" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="studentForm.controls['dob']?.invalid && studentForm.controls['dob']?.touched">
+            Date of Birth is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Course</mat-label>
+          <mat-select id="course" [(ngModel)]="student.course" name="course" required>
+            <mat-option *ngFor="let course of courses" [value]="course">{{course}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="studentForm.controls['course']?.invalid && studentForm.controls['course']?.touched">
+            Course selection is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="mat-form-row">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="text" id="phno" [(ngModel)]="student.phno" name="phno" required pattern="^[0-9]{10}$">
+          <mat-error *ngIf="studentForm.controls['phno']?.invalid && studentForm.controls['phno']?.touched">
+            Phone number is required and must be 10 digits.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Email Id</mat-label>
+          <input matInput type="email" id="eid" [(ngModel)]="student.eid" name="eid" required email>
+          <mat-error *ngIf="studentForm.controls['eid']?.invalid && studentForm.controls['eid']?.touched">
+            A valid Email Id is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="button-row">
+        <button mat-raised-button class="add-student-btn" type="submit" [disabled]="studentForm.invalid">Add Student</button>
+        <button mat-raised-button class="reset-btn" type="button" (click)="resetForm(studentForm)">Reset</button>
+      </div>
+      
+    </form>
+  </mat-card>
+  

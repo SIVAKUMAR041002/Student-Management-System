@@ -1,0 +1,77 @@
+mat-card {
+    margin: 10px;
+  }
+  
+  mat-card-content {
+    padding: 0;
+  }
+  .off-canvas {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 600px;
+    height: 100%;
+    background: #f0f8ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  .off-canvas.open {
+    transform: translateX(0);
+  }
+  
+  .off-canvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+    background-color: #0084ff; /* Blue background for the header */
+    position: relative;
+  }
+  
+  .off-canvas-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white; /* White text for contrast */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    padding: 3px;
+  }
+  
+  .off-canvas-content {
+    padding-top: 20px;
+  }
+  
+  .student-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .student-item {
+    margin-bottom: 10px;
+  }
+  
+  .student-table {
+    width: 100%;
+  }
+  
+  .student-table th, .student-table td {
+    padding: 8px 16px;
+    text-align: left;
+  }
+  
+  .student-table th {
+    background-color: #0084ff;
+    color: white;
+  }
+  

@@ -1,0 +1,14 @@
+.off-canvas {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    display: none; /* Initially hidden */
+  }
+  
